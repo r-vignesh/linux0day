@@ -182,7 +182,7 @@ static int genprobe_new_chip(struct map_info *map, struct chip_probe *cp,
 		for (; type <= CFI_DEVICETYPE_X32; type<<=1) {
 			cfi->device_type = type;
 
-			if (cp->probe_chip(map, 0, NULL, cfi))
+			if (cp->probe_chip(map, nr_chips << cfi->chipshift, NULL, cfi))
 				return 1;
 		}
 	}
